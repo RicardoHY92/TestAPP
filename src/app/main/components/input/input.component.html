@@ -1,0 +1,30 @@
+<form (ngSubmit)="calculate()" autocomplete="off" [formGroup]="myInputs">
+    <div class="form-group row mb-3">
+        <label class="col-sm-4 col-form-label" for="">Purchase price of the property</label>
+        <div class="col-sm-6">
+            <input class="form-control" type="number" placeholder="Amount in €" formControlName="propertyPrice">
+            <span class="form-text text-danger" *ngIf="validField('propertyPrice')">Please, set an amount</span>
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-sm-4 col-form-label" for="">Monthly rent amount</label>
+        <div class="col-sm-6">
+            <input class="form-control" type="number" placeholder="Amount in €" formControlName="monthlyRent">
+            <span class="form-text text-danger" *ngIf="validField('monthlyRent')">Please, set an amount</span>
+        </div>
+    </div>
+    <div class="form-group row mb-3">
+        <label class="col-sm-4 col-form-label" for="">Annual rental fee</label>
+        <div class="col-sm-6">
+            <input class="form-control" type="number" placeholder="Amount in €" formControlName="annualRental">
+            <span class="form-text text-danger" *ngIf="validField('annualRental')">Please, set an amount</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary float-end" type="submit" [disabled]="myInputs.invalid">
+                Calculate
+            </button>
+        </div>
+    </div>
+</form>
